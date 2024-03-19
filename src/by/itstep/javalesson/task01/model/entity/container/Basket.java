@@ -26,11 +26,8 @@ public class Basket {
         this.products = products;
     }
 
-    public int getSize() {
-        return size;
-    }
+   public int getSize() {
+       return size;
+   }
 
-    public void setSize(int size) {
-        this.size = size;
-    }
 }
