@@ -2,20 +2,35 @@ package by.itstep.javalesson.task01.model.entity.container;
 
 import by.itstep.javalesson.task01.model.entity.*;
 
+import java.util.Arrays;
+
 public class Basket {
     public static final int DEFAULT_SIZE = 10;
 
     private Product[] products;
 
-    private int size = 0;
-
     public Basket() {
-        products = new Product[DEFAULT_SIZE];
+        products = new Product[0];
     }
 
     public Basket(Product[] products) {
         this.products = products;
-        size = products.length;
+    }
+
+    public void add(Product product){
+
+    }
+
+    public void remove(Product product){
+
+    }
+
+    public void remove(int index){
+
+    }
+
+    public Product get(int index){
+        return new Product();
     }
 
     public Product[] getProducts() {
@@ -27,7 +42,15 @@ public class Basket {
     }
 
    public int getSize() {
-       return size;
+       return products.length;
    }
 
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder("List of products:\n");
+        for (int i = 0; i < products.length; i++) {
+            builder.append(products[i]).append("\n");
+        }
+        return new String(builder);
+    }
 }
