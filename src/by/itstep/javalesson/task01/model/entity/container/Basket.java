@@ -6,50 +6,35 @@ import java.util.Arrays;
 
 public class Basket {
     public static final int DEFAULT_SIZE = 10;
+    Container container;
 
-    private Product[] products;
-
-    public Basket() {
-        products = new Product[0];
-    }
 
     public Basket(Product[] products) {
-        this.products = products;
+        container = new ArrayImplementation();
     }
 
-    public void add(Product product){
-
+    public Basket(Container container) {
+        this.container = container;
     }
 
-    public void remove(Product product){
 
+    public int getSize() {
+        return container.size();
     }
 
-    public void remove(int index){
-
+    public Product getProduct(int index) {
+        return container.get(index);
     }
 
-    public Product get(int index){
-        return new Product();
+    void add(Product product){
+        container.add(product);
     }
-
-    public Product[] getProducts() {
-        return products;
-    }
-
-    public void setProducts(Product[] products) {
-        this.products = products;
-    }
-
-   public int getSize() {
-       return products.length;
-   }
 
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder("List of products:\n");
-        for (int i = 0; i < products.length; i++) {
-            builder.append(products[i]).append("\n");
+        for (int i = 0; i < container.size(); i++) {
+            builder.append(container.get(i)).append("\n");
         }
         return new String(builder);
     }

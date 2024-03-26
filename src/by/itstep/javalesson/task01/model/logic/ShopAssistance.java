@@ -10,10 +10,13 @@ public class ShopAssistance {
         }
         double total = 0;
 
-        for (Product product : basket.getProducts()) {
+        for (Product product : basket.getSize()) {
             total += product.getPrice();
         }
 
+ //       for (int i = 0; i < basket.getSize(); i++) {
+ //           total += basket.getProduct(i).getPrice();
+ //       }
 
         return total;
     }
