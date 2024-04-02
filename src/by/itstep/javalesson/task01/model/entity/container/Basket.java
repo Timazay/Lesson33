@@ -36,6 +36,6 @@ public class Basket {
         for (int i = 0; i < container.size(); i++) {
             builder.append(container.get(i)).append("\n");
         }
-        return new String(builder);
+        return builder.toString();
     }
 }

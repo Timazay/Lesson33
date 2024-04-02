@@ -2,6 +2,7 @@ package by.itstep.javalesson.task01.controller;
 
 import by.itstep.javalesson.task01.model.entity.*;
 import by.itstep.javalesson.task01.model.entity.container.Basket;
+import by.itstep.javalesson.task01.model.logic.ShopAssistance;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,5 +13,6 @@ public class Main {
         Basket basket = new Basket(products);
 
         System.out.println(basket.toString());
+        System.out.println(ShopAssistance.calcTotalPrice(basket));
     }
 }
