@@ -1,23 +1,42 @@
 package by.itstep.javalesson.task01.model.entity.container.Iterator;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Iterator;
+import java.lang.Iterable;
+
 public class TestContainer {
     public static void main(String[] args) {
-        MyList list = new MyList();
-        MyArray array = new MyArray();
+        List<Integer> list = new ArrayList<>();
 
-        test(list, array);
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+
+        test(list);
 
     }
 
-    public static void test(Iterable... iterators) {
-        for (Iterable iterable:iterators) {
-            Iterator iterator = iterable.getIterator();
-            while (iterator.hasElement()) {
-                System.out.print(iterator.element() + " ");
-            }
+    public static void test(Iterable iterable){
+        Iterator iterator = iterable.iterator();
 
-            System.out.println();
+        while (iterator.hasNext()){
+            System.out.print(iterator.next() + " ");
         }
-
     }
+
+
+
+ //   public static void test(Iterable... iterators) {
+ //       for (Iterable iterable:iterators) {
+ //           Iterator iterator = iterable.getIterator();
+ //           while (iterator.hasElement()) {
+ //               System.out.print(iterator.element() + " ");
+ //           }
+//
+ //           System.out.println();
+ //       }
+//
+ //   }
 }

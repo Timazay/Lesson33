@@ -3,11 +3,15 @@ package by.itstep.javalesson.task01.model.entity.container;
 import by.itstep.javalesson.task01.model.entity.*;
 
 import java.util.Arrays;
+import java.util.Iterator;
 
-public class Basket {
+public class Basket implements Iterable<Product>{
     public static final int DEFAULT_SIZE = 10;
     Container container;
 
+    public Basket() {
+
+    }
 
     public Basket(Product[] products) {
         container = new ArrayImplementation();
@@ -37,5 +41,26 @@ public class Basket {
             builder.append(container.get(i)).append("\n");
         }
         return builder.toString();
+    }
+
+    @Override
+    public Iterator<Product> iterator() {
+        return new BasketIterator();
+    }
+
+
+    private class BasketIterator implements Iterator<Product> {
+        private int count = 0;
+
+
+        @Override
+        public boolean hasNext() {
+            return count< container.size();
+        }
+
+        @Override
+        public Product next() {
+            return container.get(count++);
+        }
     }
 }
